@@ -14,11 +14,11 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_temperature,
            aes(Months,AverageTemprature)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#F44336"))
+                   fill=I("#FF3D00"))
   })
   
   output$plot2 <- renderPlot({
@@ -35,7 +35,7 @@ function(input, output) {
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#EC407A"))
+                   fill=I("#880E4F"))
   })
   
   output$plot3 <- renderPlot({
@@ -51,7 +51,7 @@ function(input, output) {
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#7E57C2"))
+                   fill=I("#1A237E"))
   })
   
   output$plot4 <- renderPlot({
@@ -68,7 +68,7 @@ function(input, output) {
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#26A69A"))
+                   fill=I("#D50000"))
   })
   
   output$plot5 <- renderPlot({
@@ -85,7 +85,7 @@ function(input, output) {
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#FFB74D"))
+                   fill=I("#01579B"))
   })
   
   output$plot6 <- renderPlot({
@@ -102,7 +102,7 @@ function(input, output) {
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
-                   fill=I("#42A5F5"))
+                   fill=I("#1B5E20"))
   })
   
 }
