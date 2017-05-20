@@ -35,7 +35,7 @@ fluidPage(
   
   br(),
   tabsetPanel(
-   tabPanel("MAP", map <- leaflet(height = 780) %>% setView(lng = 35.24332, lat = 38.96375, zoom = 7) %>%
+   tabPanel("MAP", map <- leaflet(height = 780) %>% setView(lng = 35.65, lat = 38.96375, zoom = 7) %>%
               # Base groups
               addTiles(group = "OSM (default)") %>%
           
@@ -49,66 +49,60 @@ fluidPage(
         
               # Layers control
               addLayersControl(
-                baseGroups = c("Average Temperature", "Average Maximum Temperature","Average Minimum Temperature","Average Sunrise Temperature", "Average Number of Rainy Days","Monthly Total Rainfall Average"),
+                baseGroups <- c("Average Temperature", "Average Maximum Temperature","Average Minimum Temperature","Average Sunrise Temperature", "Average Number of Rainy Days","Monthly Total Rainfall Average"),
                 options = layersControlOptions(collapsed = FALSE)
-              ) %>%
-              
-              ##absolutePanel(fixed = TRUE, draggable = TRUE,
-              ##              top = 60, left = "auto", right = 20, bottom = "auto", width = 200, height = 2200, h2("ZIP explorer")),
+               
+              )%>%
               
               addLegend("bottomright", 
-                        pal = qpalAverageTemperature, 
-                        values = map_dataset$AverageTemprature,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
+                       pal = qpalAverageTemperature, 
+                       values = map_dataset$AverageTemprature,
+                       title = "C",
+                       opacity = 1
+                       
               )  %>%
               
               addLegend("bottomright", 
-                        pal = qpalAverageMaximumTemperature, 
-                        values = map_dataset$AverageMaximumTemperature,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
-                        
+                       pal = qpalAverageMaximumTemperature, 
+                       values = map_dataset$AverageMaximumTemperature,
+                       title = "C",
+                       opacity = 1
+                       
               ) %>%
               
               addLegend("bottomright", 
-                        pal = qpalAverageMinimumTemperature, 
-                        values = map_dataset$AverageMinimumTemperature,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
-                        
+                       pal = qpalAverageMinimumTemperature, 
+                       values = map_dataset$AverageMinimumTemperature,
+                       title = "C",
+                       opacity = 1
+                       
               ) %>%
               
               addLegend("bottomright", 
-                        pal = qpalAverageSunriseTime, 
-                        values = map_dataset$AverageSunriseTime,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
-                        
+                       pal = qpalAverageSunriseTime, 
+                       values = map_dataset$AverageSunriseTime,
+                       title = "C",
+                       opacity = 1
+                       
               ) %>%
               
               addLegend("bottomright", 
-                        pal = qpalAverageNumberofRainyDays, 
-                        values = map_dataset$AverageNumberofRainyDays,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
-                        
+                       pal = qpalAverageNumberofRainyDays, 
+                       values = map_dataset$AverageNumberofRainyDays,
+                       title = "C",
+                       opacity = 1
+                       
               ) %>%
               
               addLegend("bottomright", 
-                        pal = qpalMonthlyTotalRainfallAverage, 
-                        values = map_dataset$MonthlyTotalRainfallAverage,
-                        title = "C",
-                        labFormat = labelFormat(),
-                        opacity = 1
-                        
+                       pal = qpalMonthlyTotalRainfallAverage, 
+                       values = map_dataset$MonthlyTotalRainfallAverage,
+                       title = "C",
+                       opacity = 1
+                       
               ),
-           
+
+            
               column(12,
                     h3("ANNUAL AVERAGE VALUES BETWEEN 1926 AND 2016")
                   ),
@@ -119,29 +113,43 @@ fluidPage(
               
    ),
    
-   tabPanel("HISTOGRAMS", br(),
+   tabPanel("HISTOGRAM", br(),
             fluidPage(
-              column(6, 
-                     selectInput('x', 'CITY', dataset$City, selected = TRUE, width = '100%')
+              column(12, 
+                     selectInput('x', 'CITY', dataset$City, selected = TRUE, width = '25%')
               ),
-              column(6,
-                     selectInput('y', 'FILTER', colnames(dataset), width = '100%')
-              ), 
-              column(4,
-                     plotOutput('plot1'),
-                     plotOutput('plot2')
-              ),
-              column(4,
-                     plotOutput('plot3'),
-                     plotOutput('plot4')
-                     
-              ),
-              column(4,
-                     plotOutput('plot5'),
-                     plotOutput('plot6')
-                     
+              tabsetPanel(
+                tabPanel("MONTHS",
+                         column(4,
+                                plotOutput('plot1'),
+                                plotOutput('plot2')
+                         ),
+                         column(4,
+                                plotOutput('plot3'),
+                                plotOutput('plot4')
+                                
+                         ),
+                         column(4,
+                                plotOutput('plot5'),
+                                plotOutput('plot6')
+                                
+                         )),
+                tabPanel("SEASONS",
+                         column(4,
+                                plotOutput('plot7'),
+                                plotOutput('plot8')
+                         ),
+                         column(4,
+                                plotOutput('plot9'),
+                                plotOutput('plot10')
+                                
+                         ),
+                         column(4,
+                                plotOutput('plot11'),
+                                plotOutput('plot12')
+                                
+                         ))
               )
-            )),
-   tabPanel("OTHER", tableOutput("table"))
+            ))
   )
 )

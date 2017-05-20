@@ -1,4 +1,4 @@
-"","Cities","Season","AverageTemprature","AverageMaximumTemperature","AverageMinimumTemperature","AverageSunriseTime","AverageNumberofRainyDays","MonthlyTotalRainfallAverage"
+"","City","Season","AverageTemprature","AverageMaximumTemperature","AverageMinimumTemperature","AverageSunriseTime","AverageNumberofRainyDays","MonthlyTotalRainfallAverage"
 "1","ADANA","WINTER",7.6,11.9333333333333,6.33333333333333,5.53333333333333,7.46666666666667,67.7333333333333
 "2","ADANA","SUMMER",27.3,33.4,21.9,10.4,1.5,10.8
 "3","ADANA","SPRING",17.4,23.7333333333333,11.9,7.4,8.03333333333333,54.6333333333333
