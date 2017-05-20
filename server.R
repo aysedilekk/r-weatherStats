@@ -14,7 +14,7 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_temperature,
            aes(Months,AverageTemprature)) +
-      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
@@ -31,7 +31,7 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_maximum_temperature,
            aes(Months,AverageMaximumTemperature)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
@@ -47,7 +47,7 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_minimum_temperature,
            aes(Months,AverageMinimumTemperature)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
@@ -64,7 +64,7 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_number_of_rainy_days,
            aes(Months,AverageNumberofRainyDays)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
@@ -81,7 +81,7 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = average_sunrise_time,
            aes(Months,AverageSunriseTime)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
@@ -98,11 +98,12 @@ function(input, output) {
     positions <- c("JANUARY", "FEBRUARY", "MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER")
     ggplot(data = monthly_total_rainfall_average,
            aes(Months,MonthlyTotalRainfallAverage)) +
-      theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+      theme(axis.text.x = element_text(size=15,angle = 90, hjust = 1),axis.title.y = element_text(size=18),axis.text.y = element_text(size=15)) +
       scale_x_discrete(limits = positions) +
       stat_summary(fun.y = sum, 
                    geom = "bar",
                    fill=I("#1B5E20"))
   })
+
   
 }
